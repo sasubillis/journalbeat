@@ -19,31 +19,16 @@ The README template below provides a starting point with details about what info
 
 This module sets ut the Elastic Beat journabeat 
 
-## Setup
-
-### What journalbeat affects **OPTIONAL**
-
-If it's obvious what your module touches, you can skip this section. For example, folks can probably figure out that your mysql_instance module affects their MySQL instances.
-
-If there's more that they should know about, though, this is the place to mention:
-
-* Files, packages, services, or operations that the module will alter, impact, or execute.
-* Dependencies that your module automatically installs.
-* Warnings or other important notices.
-
-### Setup Requirements **OPTIONAL**
-
-If your module requires anything extra before setting up (pluginsync enabled, another module, etc.), mention it here.
-
-If your most recent release breaks compatibility or requires particular steps for upgrading, you might want to include an additional "Upgrading" section here.
-
 ### Beginning with journalbeat
 
-The very basic steps needed for a user to get the module up and running. This can include setup steps, if necessary, or it can be an example of the most basic use of the module.
+This module assumes the ELK stack is up and running in you environment, at the very least a logstash server running with a resolvable url 
 
 ## Usage
-
-Include usage examples for common use cases in the **Usage** section. Show your users how to use your module to solve problems, and be sure to include code examples. Include three to five examples of the most important or common tasks a user can accomplish with your module. Show users how to accomplish more complex tasks that involve different types, classes, and functions working in tandem.
+```
+class { 'journalbeat':
+      logstash_hosts => ['https://logstash.example.com:5044'],
+  }
+```
 
 ## Reference
 

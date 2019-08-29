@@ -2,9 +2,9 @@
   "name": "tsaterdal-journalbeat",
   "version": "0.1.0",
   "author": "Tore Saeterdal",
-  "summary": "",
+  "summary": "This module sets up the elastic beat journalbeat for linux based systems ",
   "license": "Apache-2.0",
-  "source": "",
+  "source": "https://github.com/torees/journalbeat",
   "dependencies": [
 
   ],
