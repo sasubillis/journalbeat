@@ -34,7 +34,7 @@ If using custom path for TLS/SSL certificates for logging
 
 ```
 class { 'journalbeat':
-      logstash_hosts => ['https://logstash.example.com:5044'],
+      logstash_hosts => 'logstash.example.com',
       tls_ca_file    => '/mypath/exampleca.pem',
       tls_cert_file  => '/mypath/examplecert.pem'
       tls_key_file   => '/mypath/examplekey.pem',

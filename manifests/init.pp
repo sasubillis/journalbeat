@@ -8,7 +8,8 @@ class journalbeat (
   $ensure = 'present',
   $status = 'running',
   Boolean $manage_repo = true,
-  Array[Stdlib::Httpurl] $logstash_hosts = ['https://localhost:5044'],
+  Stdlib::Host $logstash_host = 'localhost',
+  Stdlib::Port $logstash_port = 5044,
   Stdlib::Absolutepath $tls_ca_file = '/etc/pki/root/ca.pem',
   Stdlib::Absolutepath $tls_cert_file = '/etc/pki/client/cert.pem',
   Stdlib::Absolutepath $tls_key_file = '/etc/pki/client/cert.key',
@@ -27,7 +28,8 @@ class journalbeat (
     include elastic_stack::repo
   }
   $logstash_params = {
-    logstash_hosts => $logstash_hosts,
+    host           => $logstash_host,
+    port           => $logstash_port,
     tls_ca_file    => $tls_ca_file,
     tls_cert_file  => $tls_cert_file,
     tls_key_file   => $tls_key_file,

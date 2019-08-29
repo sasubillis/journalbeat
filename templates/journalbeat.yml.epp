@@ -1,4 +1,5 @@
-<% | Array[Stdlib::Httpurl] $logstash_hosts,
+<% |  Stdlib::Host $host,
+      Stdlib::Port $port,
       Stdlib::Absolutepath $tls_ca_file,
       Stdlib::Absolutepath $tls_cert_file,
       Stdlib::Absolutepath $tls_key_file,
@@ -17,7 +18,7 @@ setup.template.settings:
 
 #----------------------------- Logstash output --------------------------------
 output.logstash:
-  hosts: [<%= $logstash_hosts.map |$host| { "'${host}'" }.join(', ') %>]
+  hosts: ["<%= "${host}:${port}" %>"]
 
   ssl.certificate_authorities: ["<%= $tls_ca_file %>"]
   ssl.certificate: "<%= $tls_cert_file %>"
