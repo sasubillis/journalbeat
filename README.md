@@ -30,6 +30,16 @@ class { 'journalbeat':
   }
 ```
 
+If using custom path for TLS/SSL certificates for logging
+
+```
+class { 'journalbeat':
+      logstash_hosts => ['https://logstash.example.com:5044'],
+      tls_ca_file    => '/mypath/exampleca.pem',
+      tls_cert_file  => '/mypath/examplecert.pem'
+      tls_key_file   => '/mypath/examplekey.pem',
+  }
+```
 ## Reference
 
 This section is deprecated. Instead, add reference information to your code as Puppet Strings comments, and then use Strings to generate a REFERENCE.md in your module. For details on how to add code comments and generate documentation with Strings, see the Puppet Strings [documentation](https://puppet.com/docs/puppet/latest/puppet_strings.html) and [style guide](https://puppet.com/docs/puppet/latest/puppet_strings_style.html)
