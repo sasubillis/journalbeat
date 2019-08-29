@@ -51,5 +51,6 @@ class journalbeat (
   service { 'journalbeat':
     ensure => $status,
   }
-  Package['journalbeat'] -> Service['journalbeat']
+
+  Package['journalbeat'] -> File['/etc/journalbeat/journalbeat.yml'] ~> Service['journalbeat']
 }
