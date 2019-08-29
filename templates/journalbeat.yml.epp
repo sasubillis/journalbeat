@@ -1,4 +1,4 @@
-<% | Array[Stdlib::Httpurl] $hosts,
+<% | Array[Stdlib::Httpurl] $logstash_hosts,
 | -%>
 
 #=========================== Journalbeat inputs =============================
@@ -71,7 +71,7 @@ setup.template.settings:
 #----------------------------- Logstash output --------------------------------
 output.logstash:
   # The Logstash hosts
-  hosts: [<%= $hosts.map |$host| { "'${host}':5044" }.join(', ') %>]
+  hosts: [<%= $logstash_hosts.map |$host| { "'${host}'" }.join(', ') %>]
 
   # Optional SSL. By default is off.
   # List of root certificates for HTTPS server verifications

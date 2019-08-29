@@ -7,3 +7,4 @@ fixtures:
      elastic_stack: "elastic/elastic_stack"
      apt: "puppetlabs/apt"
      yum: "puppet-yum"
+     yumrepo_core: "puppetlabs/yumrepo_core"

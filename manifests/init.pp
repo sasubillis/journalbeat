@@ -6,9 +6,9 @@
 #   include journalbeat
 class journalbeat (
   $ensure = 'present',
-  $status = 'enabled',
+  $status = 'running',
   Boolean $manage_repo = true,
-  Array[Stdlib::Httpurl] $logstash_hosts = ['https://localhost:5044']
+  Array[Stdlib::Httpurl] $logstash_hosts = ['https://localhost:5044'],
 ) {
 
 
@@ -23,15 +23,20 @@ class journalbeat (
   if ($manage_repo == true) {
     include elastic_stack::repo
   }
-
+  $logstash_params = {
+    logstash_hosts   => $logstash_hosts,
+  }
 
   package { 'journalbeat':
     ensure  => $ensure,
-    content => epp('journalbeat/journalbeat.yml',$logstash_hosts),
   }
 
   file { '/etc/journalbeat/journalbeat.yml':
-    ensure => 'present'
+    ensure  => 'present',
+    content => epp('journalbeat/journalbeat.yml',$logstash_params),
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0600',
 
   }
 
