@@ -1,12 +1,13 @@
 <% |  Stdlib::Host $host,
       Stdlib::Port $port,
       Stdlib::Absolutepath $tls_ca_file,
+      Stdlib::Absolutepath $journal_path,
 | -%>
 
 #=========================== Journalbeat inputs =============================
 
 journalbeat.inputs:
-- paths: []
+- paths: ["<%= "${journal_path}" %>"]
   seek: cursor
  
 
