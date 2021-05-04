@@ -1,8 +1,6 @@
 <% |  Stdlib::Host $host,
       Stdlib::Port $port,
       Stdlib::Absolutepath $tls_ca_file,
-      Stdlib::Absolutepath $tls_cert_file,
-      Stdlib::Absolutepath $tls_key_file,
 | -%>
 
 #=========================== Journalbeat inputs =============================
@@ -21,8 +19,6 @@ output.logstash:
   hosts: ["<%= "${host}:${port}" %>"]
 
   ssl.certificate_authorities: ["<%= $tls_ca_file %>"]
-  #ssl.certificate: "<%= $tls_cert_file %>"
-  #ssl.key: "<%= $tls_key_file %>"
 
 processors:
   - add_host_metadata: ~
