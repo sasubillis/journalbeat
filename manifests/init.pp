@@ -10,9 +10,7 @@ class journalbeat (
   Boolean $manage_repo = true,
   Stdlib::Host $logstash_host = 'localhost',
   Stdlib::Port $logstash_port = 5044,
-  Stdlib::Absolutepath $tls_ca_file = '/etc/pki/root/ca.pem',
-  Stdlib::Absolutepath $tls_cert_file = '/etc/pki/client/cert.pem',
-  Stdlib::Absolutepath $tls_key_file = '/etc/pki/client/cert.key',
+  Stdlib::Absolutepath $tls_ca_file = '/etc/pki/root/ca.pem'
 ) {
 
 
