@@ -10,7 +10,8 @@ class journalbeat (
   Boolean $manage_repo = true,
   Stdlib::Host $logstash_host = 'localhost',
   Stdlib::Port $logstash_port = 5044,
-  Stdlib::Absolutepath $tls_ca_file = '/etc/pki/root/ca.pem'
+  Stdlib::Absolutepath $tls_ca_file = '/etc/pki/root/ca.pem',
+  Stdlib::Absolutepath $journal_path = '/run/log/journal',
 ) {
 
 
@@ -29,6 +30,7 @@ class journalbeat (
     host           => $logstash_host,
     port           => $logstash_port,
     tls_ca_file    => $tls_ca_file,
+    journal_path   => $journal_path,
   }
 
   package { 'journalbeat':
