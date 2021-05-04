@@ -33,7 +33,6 @@ class journalbeat (
 
   package { 'journalbeat':
     ensure  => $ensure,
-    version => '7.10.2',
   }
 
   file { '/etc/journalbeat/journalbeat.yml':
