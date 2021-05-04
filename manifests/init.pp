@@ -31,8 +31,6 @@ class journalbeat (
     host           => $logstash_host,
     port           => $logstash_port,
     tls_ca_file    => $tls_ca_file,
-    #tls_cert_file  => $tls_cert_file,
-    #tls_key_file   => $tls_key_file,
   }
 
   package { 'journalbeat':
