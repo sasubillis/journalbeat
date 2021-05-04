@@ -14,13 +14,13 @@ class journalbeat (
 ) {
 
 
-  if ! ($ensure in [ 'present', 'absent' ]) {
-    fail("\"${ensure}\" is not a valid ensure parameter value")
-  }
-
-  #if ! ($status in [ 'enabled', 'disabled', 'running', 'unmanaged' ]) {
-  #  fail("\"${status}\" is not a valid status parameter value")
+  #if ! ($ensure in [ 'present', 'absent' ]) {
+  #  fail("\"${ensure}\" is not a valid ensure parameter value")
   #}
+
+  if ! ($status in [ 'enabled', 'disabled', 'running', 'unmanaged' ]) {
+    fail("\"${status}\" is not a valid status parameter value")
+  }
 
   if ($manage_repo == true) {
     include elastic_stack::repo
