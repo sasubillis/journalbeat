@@ -26,7 +26,7 @@ processors:
   - add_host_metadata: ~
   - add_cloud_metadata: ~
   - add_tags:
-      tags: ["<%= $tls_ca_file %>"]
+      tags: ["<%= $tags %>"]
 
 #================================ Logging =====================================
 
