@@ -7,6 +7,7 @@
 class journalbeat (
   $ensure = 'present',
   $status = 'running',
+  $tags = 'default',
   Boolean $manage_repo = true,
   Stdlib::Host $logstash_host = 'localhost',
   Stdlib::Port $logstash_port = 5044,
