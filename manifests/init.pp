@@ -32,6 +32,7 @@ class journalbeat (
     port           => $logstash_port,
     tls_ca_file    => $tls_ca_file,
     journal_path   => $journal_path,
+    tags           => $tags,
   }
 
   package { 'journalbeat':
