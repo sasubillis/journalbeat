@@ -38,11 +38,13 @@ class journalbeat (
 
   if !($package == "" ) {
     package { 'journalbeat':
-      ensure  => $package
+      ensure  => $package,
+      before => File['/etc/journalbeat/journalbeat.yml'],
     }
   } else {
     package { 'journalbeat':
-      ensure  => $ensure
+      ensure  => $ensure,
+      before => File['/etc/journalbeat/journalbeat.yml'],
     }
   }
 
