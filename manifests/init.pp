@@ -7,6 +7,7 @@
 class journalbeat (
   $ensure = 'present',
   $status = 'running',
+  $package = '',
   $tags = 'default',
   Boolean $manage_repo = true,
   Stdlib::Host $logstash_host = 'localhost',
@@ -35,8 +36,14 @@ class journalbeat (
     tags           => $tags,
   }
 
-  package { 'journalbeat':
-    ensure  => $ensure,
+  if !($package == "" ) {
+    package { 'journalbeat':
+      ensure  => $package
+    }
+  } else {
+    package { 'journalbeat':
+      ensure  => $ensure
+    }
   }
 
   file { '/etc/journalbeat/journalbeat.yml':
